@@ -30,6 +30,7 @@ resource "aws_security_group" "sg" {
     ami                    = data.aws_ami.ami.id
     vpc_security_group_ids = [aws_security_group.sg.id]
     iam_instance_profile   = aws_iam_instance_profile.instance_profile.name
+    subnet_id = var.subnet_id
     tags                   = merge({
       Name = "${var.component}-${var.env}" }, var.tags)
   }
