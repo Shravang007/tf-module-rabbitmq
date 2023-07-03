@@ -44,3 +44,4 @@ resource "aws_security_group" "sg" {
     tags                   = merge({
       Name = "${var.component}-${var.env}" }, var.tags)
   }
+
