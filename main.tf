@@ -46,6 +46,11 @@ resource "aws_security_group" "sg" {
       Name = "${var.component}-${var.env}" }, var.tags)
   }
 
+root_block_device {
+  encrypted  = true
+  kms_key_id = var.kms_key_id
+}
+
 resource "aws_route53_record" "rabbitmq" {
   zone_id = var.zone_id
   name    = "${var.component}-${var.env}"
