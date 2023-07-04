@@ -44,11 +44,11 @@ resource "aws_security_group" "sg" {
     })
     tags                   = merge({
       Name = "${var.component}-${var.env}" }, var.tags)
-  }
 
-root_block_device {
-  encrypted  = true
-  kms_key_id = var.kms_key_id
+    root_block_device {
+      encrypted  = true
+      kms_key_id = var.kms_key_id
+    }
 }
 
 resource "aws_route53_record" "rabbitmq" {
